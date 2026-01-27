@@ -1,0 +1,9 @@
+<Solution>
+  <Folder Name="/Examples/">
+    <Project Path="../examples/SigInfoExample/SigInfoExample.csproj" />
+  </Folder>
+  <Folder Name="/Tests/">
+    <Project Path="../tests/Medo.SigInfo.Tests/Medo.SigInfo.Tests.csproj" />
+  </Folder>
+  <Project Path="Medo.SigInfo/Medo.SigInfo.csproj" />
+</Solution>
