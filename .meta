@@ -1,3 +1,4 @@
 PROJECT_NAME:             Medo.SigInfo
 PROJECT_ENTRYPOINT:       src/Medo.SigInfo/Medo.SigInfo.csproj
 PACKAGE_NUGET:            Medo.SigInfo
+PACKAGE_NUGET_ENTRYPOINT: src/MultiFramework/Medo.SigInfo.csproj
