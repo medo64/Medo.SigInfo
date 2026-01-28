@@ -242,7 +242,9 @@ if [ "$PACKAGE_NUGET" != "" ]; then
 
     PACKAGE_NUGET_VERSION=`cat "$PACKAGE_NUGET_ENTRYPOINT" | grep "<Version>" | sed 's^</\?Version>^^g' | xargs`
     if [ "$PACKAGE_NUGET_VERSION" = "" ]; then
-        PACKAGE_NUGET_VERSION=$ASSEMBLY_VERSION_TEXT
+        if [ "$PACKAGE_NUGET_VERSION" = "" ]; then
+            PACKAGE_NUGET_VERSION=0.0.0
+        fi
     fi
     echo "${ANSI_PURPLE}NuGET package version: ${ANSI_MAGENTA}$PACKAGE_NUGET_VERSION${ANSI_RESET}"
 
@@ -759,8 +761,8 @@ make_package() {
         echo
         cp "$SCRIPT_DIR/build/nuget/$PACKAGE_NUGET_ID.$PACKAGE_NUGET_VERSION.nupkg"  "$SCRIPT_DIR/dist/" || return 1
         echo "${ANSI_CYAN}dist/$PACKAGE_NUGET_ID.$PACKAGE_NUGET_VERSION.nupkg${ANSI_RESET}"
-        cp "$SCRIPT_DIR/build/nuget/$PACKAGE_NUGET_ID.$PACKAGE_NUGET_VERSION.symbols.nupkg" "$SCRIPT_DIR/dist/" || return 1
-        echo "${ANSI_CYAN}dist/$PACKAGE_NUGET_ID.$PACKAGE_NUGET_VERSION.symbols.nupkg${ANSI_RESET}"
+        cp "$SCRIPT_DIR/build/nuget/$PACKAGE_NUGET_ID.$PACKAGE_NUGET_VERSION.snupkg" "$SCRIPT_DIR/dist/" || return 1
+        echo "${ANSI_CYAN}dist/$PACKAGE_NUGET_ID.$PACKAGE_NUGET_VERSION.snupkg${ANSI_RESET}"
         echo
     fi
 
